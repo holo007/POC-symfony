@@ -69,6 +69,12 @@ class Frais
      */
     private $lastUpdateBy;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Client::class)
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $client;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -190,6 +196,18 @@ class Frais
     public function setLastUpdateBy(string $lastUpdateBy): self
     {
         $this->lastUpdateBy = $lastUpdateBy;
+
+        return $this;
+    }
+
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(?Client $client): self
+    {
+        $this->client = $client;
 
         return $this;
     }

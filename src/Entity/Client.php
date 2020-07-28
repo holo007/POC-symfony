@@ -5,6 +5,9 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\ClientRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
  * @ApiResource()
@@ -21,6 +24,7 @@ class Client
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @ApiFilter(SearchFilter::class, strategy="partial")
      */
     private $nom;
 
@@ -40,4 +44,11 @@ class Client
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->nom;
+    }
+
+
 }

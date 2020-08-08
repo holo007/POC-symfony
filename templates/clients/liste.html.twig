@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Liste Clients{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <h1>Liste Clients</h1>
+
+            <table border="1" cellpadding="10">
+                <tr>
+                    <td>Nom Client</td>
+                </tr>
+                
+                {% for client in clients %}
+                <tr>      
+                    <td>{{ client.nom |e}}</td>            
+            
+                </tr>
+                 {% endfor %}
+
+        
+            </table>
+        
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

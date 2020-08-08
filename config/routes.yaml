@@ -1,3 +1,12 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+index:
+    path: /
+    controller: App\Controller\FraisController::index
+
+clients_liste:
+    path: /clients/liste
+    controller: App\Controller\ClientController::listeClients
+
+frais_liste:
+    path: /frais/liste
+    controller: App\Controller\FraisController::listeFrais
+

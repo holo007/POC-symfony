@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\FraisRepository;
+
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\FraisRepository;
+use ApiPlatform\Core\Annotation\ApiResource;
+
 
 /**
  * @ApiResource()
@@ -22,7 +24,7 @@ class Frais
     /**
      * @ORM\Column(type="string", length=50)
      */
-    private $typeFrais;
+    private $type_frais;
 
     /**
      * @ORM\Column(type="date")
@@ -52,22 +54,22 @@ class Frais
     /**
      * @ORM\Column(type="datetime")
      */
-    private $createdAt;
+    private $created_at;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $createdBy;
+    private $created_by;
 
     /**
      * @ORM\Column(type="datetime")
      */
-    private $lastUpdateAt;
+    private $last_update_at;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $lastUpdateBy;
+    private $last_update_by;
 
     /**
      * @ORM\ManyToOne(targetEntity=Client::class)
@@ -82,12 +84,12 @@ class Frais
 
     public function getTypeFrais(): ?string
     {
-        return $this->typeFrais;
+        return $this->type_frais;
     }
 
     public function setTypeFrais(string $typeFrais): self
     {
-        $this->typeFrais = $typeFrais;
+        $this->type_frais = $typeFrais;
 
         return $this;
     }
@@ -97,9 +99,9 @@ class Frais
         return $this->date_paiement;
     }
 
-    public function setDatePaiement(\DateTimeInterface $date_paiement): self
+    public function setDatePaiement(\DateTimeInterface $datePaiement): self
     {
-        $this->date_paiement = $date_paiement;
+        $this->date_paiement = $datePaiement;
 
         return $this;
     }
@@ -154,48 +156,48 @@ class Frais
 
     public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->createdAt;
+        return $this->created_at;
     }
 
     public function setCreatedAt(\DateTimeInterface $createdAt): self
     {
-        $this->createdAt = $createdAt;
+        $this->created_at = $createdAt;
 
         return $this;
     }
 
     public function getCreatedBy(): ?string
     {
-        return $this->createdBy;
+        return $this->created_by;
     }
 
     public function setCreatedBy(string $createdBy): self
     {
-        $this->createdBy = $createdBy;
+        $this->created_by = $createdBy;
 
         return $this;
     }
 
     public function getLastUpdateAt(): ?\DateTimeInterface
     {
-        return $this->lastUpdateAt;
+        return $this->last_update_at;
     }
 
     public function setLastUpdateAt(\DateTimeInterface $lastUpdateAt): self
     {
-        $this->lastUpdateAt = $lastUpdateAt;
+        $this->last_update_at = $lastUpdateAt;
 
         return $this;
     }
 
     public function getLastUpdateBy(): ?string
     {
-        return $this->lastUpdateBy;
+        return $this->last_update_by;
     }
 
     public function setLastUpdateBy(string $lastUpdateBy): self
     {
-        $this->lastUpdateBy = $lastUpdateBy;
+        $this->last_update_by = $lastUpdateBy;
 
         return $this;
     }
@@ -211,4 +213,7 @@ class Frais
 
         return $this;
     }
+
+        
+  
 }

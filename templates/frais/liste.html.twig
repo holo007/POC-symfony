@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Liste Frais{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}<h1>Liste des Frais</h1>{% endblock %}
+
+        <table border="1" cellpadding="10">
+    <tr>
+
+        <td>Date Demande de remboursement du frais</td>
+        <td>Nom du Commercial</td>
+        <td>Client Visité</td>
+        <td>Type de Frais</td>
+        <td>Description</td>
+        <td>Montant</td>
+        <td>Type de Paiement</td>
+        <td>Justificatif</td>
+
+ 
+
+    </tr>
+
+    <tr>
+
+     {% for frais in frais_liste %}
+                <tr>      
+                    <td>{{ frais.createdAt|date("m/d/Y") }}</td>
+                    <td>Nom du Commercial</td>         
+                    <td>{{frais.client.nom}}</td>
+                    <td>{{frais.typeFrais |e}}</td>
+                    <td>{{frais.description |e}}</td>
+                    <td>{{frais.montant |e}}</td>
+                    <td>{{frais.typePaiement |e}}</td>
+                    <td>{{frais.justificatif |e}}</td>
+      
+                </tr>
+    {% endfor %}
+
+    
+ 
+
+    </tr>
+
+
+    
+
+</table>
+
+        {% block javascripts %}
+        
+        {% endblock %}
+    </body>
+</html>

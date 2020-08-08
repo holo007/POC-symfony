@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Liste Frais pour un client{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <h1>Frais - Client visité : {{client.nom |e}} </h1>
+            
+            <table border="1" cellpadding="10">
+                <tr>
+                    <td>ID client</td>
+                    <td>Nom Client</td>
+                    <td>ID Frais</td>
+                    <td>Description Frais</td>
+
+                </tr>
+                
+                
+                <tr>      
+                {% for onefrais in frais %}
+                <tr>      
+                    <td>{{client.id |e}}</td>
+                    <td>{{client.nom |e}}</td>      
+                    <td>{{onefrais.id |e}}</td>
+                    <td>{{onefrais.description |e}}</td>                  
+                </tr>
+                 {% endfor %}  
+                </tr>
+               
+
+        
+            </table>
+        
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

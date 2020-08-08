@@ -1,12 +1,27 @@
 index:
     path: /
-    controller: App\Controller\FraisController::index
+    controller: App\Controller\HomeController::index
 
 clients_liste:
     path: /clients/liste
     controller: App\Controller\ClientController::listeClients
 
+client_add:
+   path: /clients/add
+   controller: App\Controller\ClientController::add
+
+client_update:
+   path: /clients/update/{id}
+   controller: App\Controller\ClientController::update
+
+client_delete:
+   path: /clients/delete/{id}
+   controller: App\Controller\ClientController::delete
+
 frais_liste:
     path: /frais/liste
     controller: App\Controller\FraisController::listeFrais
 
+frais_client:
+    path: /clients/{id}
+    controller:  App\Controller\ClientController::showClientFrais

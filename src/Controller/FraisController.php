@@ -10,11 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FraisController extends AbstractController
 {
-    public function index(){
-        //return new Response( 'HelloFrais !');
-        return new Response($this->renderView('frais/liste.html.twig'));
-    }
-
+ 
     public function listeFrais(){
         $allFrais = $this->getDoctrine()->getRepository(Frais::class)->findAll();
         

@@ -17,11 +17,21 @@ class ClientController extends AbstractController
 
         //tableau clients
         $clients = $this->getDoctrine()->getRepository(Client::class)->findAll();
-        var_dump($clients);
+        
         
         return new Response($this->renderView('clients/liste.html.twig',['clients'=>$clients]));
     
     }
+
+    public function showClientFrais($id)
+    {
+        $client = $this->getDoctrine()->getRepository(Client::class)->find($id);
+        $frais = $client->getFrais();
+        return new Response($this->render('clients/show.html.twig', [
+            'client' => $client,
+            'frais' => $frais,
+        ]));
+    } 
 
 
 }

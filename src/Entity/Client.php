@@ -2,11 +2,13 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Core\Annotation\ApiResource;
-use App\Repository\ClientRepository;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Serializer\Annotation\Groups;
+use App\Repository\ClientRepository;
 use ApiPlatform\Core\Annotation\ApiFilter;
+use Doctrine\Common\Collections\Collection;
+use ApiPlatform\Core\Annotation\ApiResource;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
@@ -27,6 +29,16 @@ class Client
      * @ApiFilter(SearchFilter::class, strategy="partial")
      */
     private $nom;
+
+     /**
+     * @ORM\OneToMany(targetEntity=Frais::class, mappedBy="client", orphanRemoval=true)
+     */
+    private $frais;
+
+    public function __construct()
+    {
+        $this->frais = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -49,6 +61,17 @@ class Client
     {
         return $this->nom;
     }
+
+    
+    /**
+     * @return Collection|Frais[]
+     */
+    public function getFrais(): Collection
+    {
+        return $this->frais;
+    }
+
+  
 
 
 }

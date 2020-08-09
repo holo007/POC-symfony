@@ -12,7 +12,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ * collectionOperations={"get"},
+ * itemOperations={"get"},
+ * )
  * @ORM\Entity(repositoryClass=ClientRepository::class)
  */
 class Client

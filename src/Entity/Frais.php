@@ -72,7 +72,7 @@ class Frais
     private $last_update_by;
 
     /**
-     * @ORM\ManyToOne(targetEntity=Client::class)
+     * @ORM\ManyToOne(targetEntity=Client::class, inversedBy="frais")
      * @ORM\JoinColumn(nullable=false)
      */
     private $client;

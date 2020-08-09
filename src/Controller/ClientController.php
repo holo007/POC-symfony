@@ -80,6 +80,39 @@ class ClientController extends AbstractController
     }
 
 
+    public function update($id,Request $request){
+
+        $clientModif = $this->getDoctrine()->getRepository(Client::class)->find($id);
+        //echo $clientModif->getNom();
+        
+        //création formulaire modif avec champs initialisé sur les valeurs à modifier
+        $formModif = $this->createFormBuilder()
+            ->add('nom',TextType::class, ['attr' => ['value' =>$clientModif->getNom()]])
+            ->add('envoyer', SubmitType::class)
+            ->getForm();
+
+        $formModif->handleRequest($request);
+
+        if ($formModif->isSubmitted() && $formModif->isValid()){
+            $formData = $formModif->getData();
+
+            $clientModif->setNom($formData['nom']);
+
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->persist($clientModif);
+            $entityManager->flush(); 
+            return $this->redirectToRoute('clients_liste');
+            
+        }
+
+          
+        return new Response($this->renderView('clients/update.html.twig',["form_title" => "Modifier un client",
+        "formModif" => $formModif->createView()]));
+      
+    }
+
+
+
     
 
 

@@ -15,6 +15,7 @@
                     <td>Nom Commercial</td>
                     <td>Nom Client</td>
                     <td>Frais</td>
+                    <td>Modifier Client</td>
                     <td>Supprimer Client</td>
                     
                 </tr>
@@ -23,8 +24,9 @@
                 <tr>      
                     <td>Nom Commercial</td>
                     <td>{{ client.nom |e}}</td> 
-                    <td><a href="{{ path('frais_client', {'id': client.id |e }) }} ">Voir les Frais</a></td>       
-                    <td><a href="{{ path('client_delete', {'id': client.id |e}) }}">Supprimer client</a></td>
+                    <td><a href="{{ path('frais_client', {'id': client.id |e }) }} ">Voir les Frais</a></td>
+                    <td><a href="{{ path('client_update', {'id': client.id |e}) }}">Modifier  {{ client.nom|e }}</a></td>      
+                    <td><a href="{{ path('client_delete', {'id': client.id |e}) }}">Supprimer {{ client.nom|e }}</a></td>
                 </tr>
                  {% endfor %}
 

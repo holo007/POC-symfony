@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Modifier un client{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+           <h1>Modifier un Client </h1>
+            {{ form_start(formModif)}}
+            {{ form_widget(formModif)}}
+            {{ form_end(formModif)}}
+
+        {% endblock %}
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

@@ -69,6 +69,16 @@ class ClientController extends AbstractController
 
     }
 
+    public function delete($id,Request $request){
+
+        $clientDel = $this->getDoctrine()->getRepository(Client::class)->find($id);
+
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($clientDel);
+        $entityManager->flush(); 
+        return $this->redirectToRoute('clients_liste');
+    }
+
 
     
 

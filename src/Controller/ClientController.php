@@ -11,10 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ClientController extends AbstractController
 {
-    // public function listeClients(){
-    //     //return new Response( 'Liste Clients !');
-    //     return new Response($this->renderView('clients/liste.html.twig'));
-    // }
+
 
     public function listeClients(){
 

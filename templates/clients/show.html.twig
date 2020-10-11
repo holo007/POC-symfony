@@ -7,7 +7,7 @@
     </head>
     <body>
         {% block body %}
-            <h1>Frais - Client visité : {{client.nom |e}} </h1>
+            <h1>Frais - Client  : {{client.nom |e}} </h1>
             
             <table border="1" cellpadding="10">
                 <tr>
@@ -15,23 +15,24 @@
                     <td>Nom Client</td>
                     <td>ID Frais</td>
                     <td>Description Frais</td>
-
-                </tr>
-                
-                
+                    <td>Montant</td>
+                    <td>Type De Paiement</td>
+                    <td>Type de frais</td>
+                </tr>                               
                 <tr>      
                 {% for onefrais in frais %}
                 <tr>      
                     <td>{{client.id |e}}</td>
                     <td>{{client.nom |e}}</td>      
                     <td>{{onefrais.id |e}}</td>
-                    <td>{{onefrais.description |e}}</td>                  
+                    <td>{{onefrais.description |e}}</td>
+                    <td>{{onefrais.montant |e}}
+                    <td>{{onefrais.typePaiement |e}}</td>
+                    <td>{{onefrais.typeFrais |e}}</td>                        
                 </tr>
                  {% endfor %}  
                 </tr>
                
-
-        
             </table>
         
         {% endblock %}

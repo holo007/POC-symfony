@@ -28,9 +28,7 @@
                     <td><a href="{{ path('client_update', {'id': client.id |e}) }}">Modifier  {{ client.nom|e }}</a></td>      
                     <td><a href="{{ path('client_delete', {'id': client.id |e}) }}">Supprimer {{ client.nom|e }}</a></td>
                 </tr>
-                 {% endfor %}
-
-        
+                 {% endfor %}      
             </table>
 
             <h4><a href="{{ path('client_add')}}">Ajouter un client</a></h4>
